@@ -15,5 +15,6 @@ This is a simple [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Techniq
 	$ python pomodoro.py
 	
 <p> Do not put the files in different directories, in order to ensure pomodoro.py works fine.
+<p><b> You need a debian derivate distro to run pomodoro </b>
 
 <h1><b> I hope this helps you (◡‿◡✿)</b></h1>
