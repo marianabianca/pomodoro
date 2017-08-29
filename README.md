@@ -1,6 +1,6 @@
 <h1><b> ˗ˏˋ Pomodoro timer ˎˊ˗ </b></h1>
 
-This is a simple pomodoro timer that you can use if you want to improve your work.
+This is a simple [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique) that you can use if you want to improve your productivity.
 
 <h2><b> How does this work? </b></h2>
 <p> When you start the pomodoro it will be shown in your terminal the message "pomodoro started", meaning that your pomodoro just started.
