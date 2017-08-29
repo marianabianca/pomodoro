@@ -3,7 +3,7 @@
 This is a simple pomodoro timer that you can use if you want to improve your work.
 
 <h2><b> How does this work? </b></h2>
-<p> When you start the pomodoro it will be shown in your therminal the message "pomodoro started", eaning that your pomodoro just started.
+<p> When you start the pomodoro it will be shown in your terminal the message "pomodoro started", meaning that your pomodoro just started.
 <p> Within 25 minutes a new terminal window will be open to show the message "rest", so it's time for a break. It lasts 5 minutes.
 <p> when the rest ends, another terminal window will be open showing the message "come back to work", and it starts another session of 25 minutes of work.
 <p> This will be repeated 4 times, but the last rest break will lasts 30 minutes.
@@ -14,6 +14,6 @@ This is a simple pomodoro timer that you can use if you want to improve your wor
 
 	$ python pomodoro.py
 	
-<p> Do not put the files in different directories, in order to pomodoro.py works fine.
+<p> Do not put the files in different directories, in order to ensure pomodoro.py works fine.
 
 <h1><b> I hope this helps you (◡‿◡✿)</b></h1>
