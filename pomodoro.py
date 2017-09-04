@@ -1,5 +1,7 @@
 import time
 import os
+from sys import platform as _platform
+import subprocess
 
 def minutes_to_seconds(minutes):
 	"""
@@ -24,8 +26,10 @@ def open_terminal(python_script, time_to_close=5):
         :param time_to_close: the number of seconds before closing
         the new terminal
         """
-
-        os.system("x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" % (python_script, time_to_close))
+        if _platform == "darwin":  #macOS
+            os.system("xterm -e 'bash -c \"python %s  %d; exec bash\"'" % (python_script, time_to_close))
+        else:
+            os.system("x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" % (python_script, time_to_close))
 
 
 def work(time_to_work=TIME_TO_WORK):
