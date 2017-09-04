@@ -1,7 +1,6 @@
 import time
 import os
 from sys import platform as _platform
-import subprocess
 
 def minutes_to_seconds(minutes):
 	"""
