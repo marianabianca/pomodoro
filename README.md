@@ -14,8 +14,8 @@ This is a simple [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Techniq
 
 	$ python pomodoro.py
 	
-<p> Note that this should only work if you have some version of Python installed. Look for the instructions for doing so on [their official website](https://www.python.org/).
-<p> Do not put the files in different directories, in order to ensure pomodoro.py works fine.
+<p> Note that this should only work if you have some version of Python installed. Look for the instructions for doing so on https://www.python.org/.
+<p> Do not put the files in different directories in order to ensure pomodoro.py works fine.
 <p><b> You need a Debian derivate distro or MacOSX to run this program. </b>
 
 <h1><b> I hope this helps you (◡‿◡✿) </b></h1>
