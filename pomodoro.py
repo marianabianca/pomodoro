@@ -2,10 +2,6 @@ import time
 import os
 from sys import platform as _platform
 
-TIME_TO_WORK = minutes_to_seconds(25)
-TIME_TO_REST = minutes_to_seconds(5)
-END_OF_POMODORO = minutes_to_seconds(30)
-
 
 def minutes_to_seconds(minutes):
     """A function that converts minutes to seconds
@@ -14,6 +10,11 @@ def minutes_to_seconds(minutes):
 	:return: The number of seconds in a give number of minutes
 	"""
     return 60 * minutes
+
+
+TIME_TO_WORK = minutes_to_seconds(25)
+TIME_TO_REST = minutes_to_seconds(5)
+END_OF_POMODORO = minutes_to_seconds(30)
 
 
 def _open_terminal(python_script, time_to_close=5):
