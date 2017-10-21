@@ -45,14 +45,14 @@ print ("Pomodoro started")
 
 new_pomodoro = True;
 while (new_pomodoro):
-	for i in range(0, 3):
-                work()
-                rest()
+    for i in range(0, 3):
         work()
-        rest(END_OF_POMODORO)
-	
-	new_pomodoro = raw_input("Do you want to start a new pomodoro? (y/n) ")
-	if new_pomodoro == "y":
-		new_pomodoro = True;
-	else:
-		new_pomodoro = False;
+        rest()
+    work()
+    rest(END_OF_POMODORO)
+
+    new_pomodoro = raw_input("Do you want to start a new pomodoro? (y/n) ")
+    if new_pomodoro == "y":
+        new_pomodoro = True;
+    else:
+        new_pomodoro = False;
