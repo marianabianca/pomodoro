@@ -2,17 +2,12 @@ import time
 import os
 from sys import platform as _platform
 
-TIME_TO_WORK = minutes_to_seconds(25)
-TIME_TO_REST = minutes_to_seconds(5)
-END_OF_POMODORO = minutes_to_seconds(30)
-
-
 def minutes_to_seconds(minutes):
     """A function that converts minutes to seconds
 	
 	:param minutes: The number of minutes do be converted
 	:return: The number of seconds in a give number of minutes
-	"""
+    """
     return 60 * minutes
 
 
@@ -27,11 +22,16 @@ def _open_terminal(python_script, time_to_close=5):
     if _platform == "darwin":  #macOS
         os.system("xterm -e 'bash -c \"python %s  %d; exec bash\"'" %
                   (python_script, time_to_close))
+    elif os.name == 'nt':   #Windows
+        os.system("start cmd /c python %s %d" % (python_script, time_to_close))
     else:
         os.system(
             "x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" %
             (python_script, time_to_close))
 
+TIME_TO_WORK = 5#minutes_to_seconds(25)
+TIME_TO_REST = 5#minutes_to_seconds(5)
+END_OF_POMODORO = 5#minutes_to_seconds(30)
 
 def work(time_to_work=TIME_TO_WORK):
     _open_terminal("print_work.py", time_to_work)
