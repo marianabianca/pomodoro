@@ -1,6 +1,7 @@
 import time
 import os
 from sys import platform as _platform
+import platform
 
 
 def minutes_to_seconds(minutes):
@@ -10,7 +11,6 @@ def minutes_to_seconds(minutes):
 	:return: The number of seconds in a give number of minutes
 	"""
     return 60 * minutes
-
 
 def _open_terminal(python_script, time_to_close=5):
     """Open a new terminal with the python script passed
@@ -23,10 +23,15 @@ def _open_terminal(python_script, time_to_close=5):
     if _platform == "darwin":  #macOS
         os.system("xterm -e 'bash -c \"python %s  %d; exec bash\"'" %
                   (python_script, time_to_close))
-    else:
-        os.system(
-            "x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" %
-            (python_script, time_to_close))
+    elif _platform.startswith('linux'): #linux
+        if platform.linux_distribution()[0] == "arch": # Arch Linux support
+            os.system(
+                "xterm -e 'bash -c \"python %s  %d; exec bash\"'" %
+                (python_script, time_to_close))
+        else: # Debian based distros
+            os.system(
+                "x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" %
+                (python_script, time_to_close))
 
 
 TIME_TO_WORK = minutes_to_seconds(25)
