@@ -2,14 +2,10 @@ import time
 import os
 from sys import platform as _platform
 
-TIME_TO_WORK = minutes_to_seconds(25)
-TIME_TO_REST = minutes_to_seconds(5)
-END_OF_POMODORO = minutes_to_seconds(30)
-
 
 def minutes_to_seconds(minutes):
     """A function that converts minutes to seconds
-	
+
 	:param minutes: The number of minutes do be converted
 	:return: The number of seconds in a give number of minutes
 	"""
@@ -31,6 +27,11 @@ def _open_terminal(python_script, time_to_close=5):
         os.system(
             "x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" %
             (python_script, time_to_close))
+
+
+TIME_TO_WORK = minutes_to_seconds(25)
+TIME_TO_REST = minutes_to_seconds(5)
+END_OF_POMODORO = minutes_to_seconds(30)
 
 
 def work(time_to_work=TIME_TO_WORK):
