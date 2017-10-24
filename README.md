@@ -16,6 +16,7 @@ This is a simple [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Techniq
 
 <p> Note that this should only work if you have some version of Python installed. Look for the instructions for doing so on https://www.python.org/.
 <p> Do not put the files in different directories in order to ensure pomodoro.py works fine.
-<p><b> You need a Debian derivate distro or MacOSX to run this program. But some other distros like Arch Linux are also supported. </b>
+<p><b> This version of the program runs on Windows, MACOSX and Debian derivate distros. </b>
+
 
 <h1><b> I hope this helps you (◡‿◡✿) </b></h1>

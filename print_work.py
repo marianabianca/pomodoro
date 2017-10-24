@@ -23,4 +23,7 @@ print("")
 print("")
 
 time.sleep(int(sys.argv[1]))
-os.kill(os.getppid(), 9)
+if (os.name == 'nt'):
+    os.kill(os.getpid(), 9)
+else:
+    os.kill(os.getppid(), 9)
