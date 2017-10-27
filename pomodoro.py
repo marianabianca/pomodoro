@@ -34,10 +34,6 @@ def _open_terminal(python_script, time_to_close=5):
                 "x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" %
                 (python_script, time_to_close))
 
-TIME_TO_WORK = minutes_to_seconds(25)
-TIME_TO_REST = minutes_to_seconds(5)
-END_OF_POMODORO = minutes_to_seconds(30)
-
     elif os.name == 'nt':   #Windows
         os.system("start cmd /c python %s %d" % (python_script, time_to_close))
     else:
