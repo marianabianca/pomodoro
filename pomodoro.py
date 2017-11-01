@@ -1,10 +1,11 @@
 import time
 import os
-from sys import platform as _platform
 import platform
+from sys import platform as _platform
 
+TIME_TO_CLOSE = 5
 
-def minutes_to_seconds(minutes):
+def _minutes_to_seconds(minutes):
     """A function that converts minutes to seconds
 
 	:param minutes: The number of minutes do be converted
@@ -12,7 +13,7 @@ def minutes_to_seconds(minutes):
     """
     return 60 * minutes
 
-def _open_terminal(python_script, time_to_close=5):
+def _open_terminal(python_script, time_to_close=TIME_TO_CLOSE):
     """Open a new terminal with the python script passed
 
     :param python_script: The path of the python script to be
@@ -40,19 +41,18 @@ def _open_terminal(python_script, time_to_close=5):
         os.system(
             "x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" %
             (python_script, time_to_close))
-        
 
-TIME_TO_WORK = minutes_to_seconds(25)
-TIME_TO_REST = minutes_to_seconds(5)
-END_OF_POMODORO = minutes_to_seconds(30)
+TIME_TO_WORK = _minutes_to_seconds(25)
+TIME_TO_REST = _minutes_to_seconds(5)
+END_OF_POMODORO = _minutes_to_seconds(30)
 
 def work(time_to_work=TIME_TO_WORK):
-    _open_terminal("print_work.py", time_to_work)
+    _open_terminal("util/print_work.py", time_to_work)
     time.sleep(time_to_work)
 
 
 def rest(time_to_rest=TIME_TO_REST):
-    _open_terminal("print_rest.py", time_to_rest)
+    _open_terminal("util/print_rest.py", time_to_rest)
     time.sleep(time_to_rest)
 
 
