@@ -86,19 +86,37 @@ def rest(time_to_rest=TIME_TO_REST):
     _open_terminal("print_rest.py", time_to_rest)
     time.sleep(time_to_rest)
 
-
 if __name__ == '__main__':
     print(START_MESSAGE)
     notify(START_MESSAGE)
     time.sleep(1)
 
-    while (True):
-        for i in range(3):
-            work()
-            rest()
-        work()
-        rest(END_OF_POMODORO)
+    own_time = input("Do yout want to define your own time (y/n)? Press 'n' if you want to use the default time ")
 
-        new_pomodoro = raw_input("Do you want to start a new pomodoro? (y/n) ")
-        if new_pomodoro.lower() != "y":
-            break
+    if own_time == "y":
+        work_time = int(input("How much time do you want to Work? "))
+        rest_time = int(input("How much time do you want to Rest? "))
+        
+        while (True):
+            for i in range(3):
+                work(work_time * 60)
+                rest(rest_time * 60)
+            work(work_time)
+            rest(END_OF_POMODORO)
+
+            new_pomodoro = input("Do you want to start a new pomodoro? (y/n) ")
+            if new_pomodoro.lower() != "y":
+                break
+
+
+    else:  
+        while (True):
+            for i in range(3):
+                work()
+                rest()
+            work()
+            rest(END_OF_POMODORO)
+
+            new_pomodoro = input("Do you want to start a new pomodoro? (y/n) ")
+            if new_pomodoro.lower() != "y":
+                break
