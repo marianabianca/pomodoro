@@ -107,7 +107,7 @@ if __name__ == '__main__':
     time.sleep(1)
 
     print("Do yout want to define your own time (y/n)?")
-    personalized_time = raw_input("Press 'n' if you want to use the default time: ")
+    personalized_time = input("Press 'n' if you want to use the default time: ")
 
     if personalized_time == 'y':
         print("Enter time in minutes :)")
