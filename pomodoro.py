@@ -89,9 +89,9 @@ if __name__ == '__main__':
 
     if personalized_time == 'y':
         print("Enter time in minutes :)")
-        time_to_work = minutes_to_seconds(input("How much time do you want to Work? "))
-        time_to_rest = minutes_to_seconds(input("How much time do you want to Rest? "))
-        end_of_pomodoro = minutes_to_seconds(input("How much time do you want between two pomodoro sessions? "))
+        time_to_work = minutes_to_seconds(int(input("How much time do you want to Work? ")))
+        time_to_rest = minutes_to_seconds(int(input("How much time do you want to Rest? ")))
+        end_of_pomodoro = minutes_to_seconds(int(input("How much time do you want between two pomodoro sessions? ")))
         pomodoro_session(time_to_work, time_to_rest, end_of_pomodoro)
     else:
         pomodoro_session()
