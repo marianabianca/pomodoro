@@ -3,23 +3,8 @@
 import time
 import os
 import platform
-import gi
 
-gi.require_version('Notify', '0.7')
-
-from gi.repository import Notify
 from sys import platform as _platform
-
-
-START_MESSAGE = "Pomodoro started..."
-NOTIFICATION_TIME_TO_WORK = """.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*
-\n            Time to work\n\n.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*"""
-NOTIFICATION_TIME_TO_REST = """.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*
-\n\t\t\t   rest\n\n.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*"""
-
-
-Notify.init("Pomodoro")
-notification = Notify.Notification.new(START_MESSAGE)
 
 
 def minutes_to_seconds(minutes):
