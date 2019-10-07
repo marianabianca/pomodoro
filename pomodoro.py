@@ -3,11 +3,7 @@
 import time
 import os
 import platform
-import gi
 
-gi.require_version('Notify', '0.7')
-
-from gi.repository import Notify
 from sys import platform as _platform
 
 
