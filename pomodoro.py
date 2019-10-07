@@ -14,10 +14,6 @@ NOTIFICATION_TIME_TO_REST = """.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*�
 \n\t\t\t   rest\n\n.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*"""
 
 
-Notify.init("Pomodoro")
-notification = Notify.Notification.new(START_MESSAGE)
-
-
 def minutes_to_seconds(minutes):
     """A function that converts minutes to seconds
 
@@ -25,17 +21,6 @@ def minutes_to_seconds(minutes):
 	:return: The number of seconds in a give number of minutes
     """
     return 60 * minutes
-
-
-def notify(notification_text):
-    """Shows a notification conteining the text passed
-
-    :param notification_text: The text to be displayed on the
-    desktop notification
-    """
-    notification.clear_hints()
-    notification.update(notification_text)
-    notification.show()
 
 def _open_terminal(python_script, time_to_close=5):
     """Open a new terminal with the python script passed
@@ -73,13 +58,11 @@ END_OF_POMODORO = minutes_to_seconds(30)
 
 
 def work(time_to_work):
-    notify(NOTIFICATION_TIME_TO_WORK)
     _open_terminal("print_work.py", time_to_work)
     time.sleep(time_to_work)
 
 
 def rest(time_to_rest):
-    notify(NOTIFICATION_TIME_TO_REST)
     _open_terminal("print_rest.py", time_to_rest)
     time.sleep(time_to_rest)
 
@@ -99,7 +82,6 @@ def pomodoro_session(time_to_work=TIME_TO_WORK, time_to_rest=TIME_TO_REST, end_o
 
 if __name__ == '__main__':
     print(START_MESSAGE)
-    notify(START_MESSAGE)
     time.sleep(1)
 
     print("Do yout want to define your own time (y/n)?")
