@@ -6,6 +6,11 @@ import platform
 
 from sys import platform as _platform
 
+try:
+	print "",
+	python_version = 2
+except:
+	python_version = 3
 
 START_MESSAGE = "Pomodoro started..."
 NOTIFICATION_TIME_TO_WORK = """.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*
@@ -74,8 +79,11 @@ def pomodoro_session(time_to_work=TIME_TO_WORK, time_to_rest=TIME_TO_REST, end_o
                 rest(time_to_rest)
             work(time_to_work)
             rest(END_OF_POMODORO)
-
-            new_pomodoro = input("Do you want to start a new pomodoro? (y/n) ")
+			
+            if python_version == 2:
+				new_pomodoro = raw_input("Do you want to start a new pomodoro? (y/n) ")
+            else:
+				new_pomodoro = input("Do you want to start a new pomodoro? (y/n) ")
             if new_pomodoro.lower() != "y":
                 break
 
@@ -85,13 +93,24 @@ if __name__ == '__main__':
     time.sleep(1)
 
     print("Do yout want to define your own time (y/n)?")
-    personalized_time = input("Press 'n' if you want to use the default time: ")
+    if python_version == 2:
+		personalized_time = raw_input("Press 'n' if you want to use the default time: ")
 
-    if personalized_time == 'y':
-        print("Enter time in minutes :)")
-        time_to_work = minutes_to_seconds(int(input("How much time do you want to Work? ")))
-        time_to_rest = minutes_to_seconds(int(input("How much time do you want to Rest? ")))
-        end_of_pomodoro = minutes_to_seconds(int(input("How much time do you want between two pomodoro sessions? ")))
-        pomodoro_session(time_to_work, time_to_rest, end_of_pomodoro)
+		if personalized_time == 'y':
+			print("Enter time in minutes :)")
+			time_to_work = minutes_to_seconds(int(raw_input("How much time do you want to Work? ")))
+			time_to_rest = minutes_to_seconds(int(raw_input("How much time do you want to Rest? ")))
+			end_of_pomodoro = minutes_to_seconds(int(raw_input("How much time do you want between two pomodoro sessions? ")))
+			pomodoro_session(time_to_work, time_to_rest, end_of_pomodoro)
+		else:
+			pomodoro_session()
     else:
-        pomodoro_session()
+        personalized_time = input("Press 'n' if you want to use the default time: ")
+        if personalized_time == 'y':
+			print("Enter time in minutes :)")
+			time_to_work = minutes_to_seconds(int(input("How much time do you want to Work? ")))
+			time_to_rest = minutes_to_seconds(int(input("How much time do you want to Rest? ")))
+			end_of_pomodoro = minutes_to_seconds(int(input("How much time do you want between two pomodoro sessions? ")))
+			pomodoro_session(time_to_work, time_to_rest, end_of_pomodoro)
+        else:
+			pomodoro_session()
