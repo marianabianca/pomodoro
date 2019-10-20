@@ -89,10 +89,7 @@ if __name__ == '__main__':
 
     input_message = "Press 'n' if you want to use the default time: "
 
-    if _version[0] < 3:
-        personalized_time = raw_input(input_message)
-    else:
-        personalized_time = input(input_message)
+    personalized_time = raw_input(input_message) if _version[0] < 3 else input(input_message)
 
     if personalized_time == 'y':
         print("Enter time in minutes :)")
