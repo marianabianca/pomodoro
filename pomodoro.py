@@ -4,6 +4,7 @@ import time
 import os
 import platform
 
+from sys import version_info as _version
 from sys import platform as _platform
 
 
@@ -85,7 +86,13 @@ if __name__ == '__main__':
     time.sleep(1)
 
     print("Do yout want to define your own time (y/n)?")
-    personalized_time = input("Press 'n' if you want to use the default time: ")
+
+    input_message = "Press 'n' if you want to use the default time: "
+
+    if _version[0] < 3:
+        personalized_time = raw_input(input_message)
+    else:
+        personalized_time = input(input_message)
 
     if personalized_time == 'y':
         print("Enter time in minutes :)")
