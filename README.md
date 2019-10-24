@@ -1,4 +1,10 @@
-<h1><b> ˗ˏˋ Pomodoro timer ˎˊ˗ </b></h1>
+<h1>
+	<b> ˗ˏˋ Pomodoro timer ˎˊ˗ </b>
+	<img src="https://raw.githubusercontent.com/marianabianca/pomodoro/art/pomodoro_icon.png"
+	 alt="pomodoro logo"
+	 align="center"
+	 width="80px">
+</h1>
 
 This is a simple [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique) that can come in handy if you want to improve your productivity.
 
