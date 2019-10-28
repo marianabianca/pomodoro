@@ -10,7 +10,7 @@ Este é um simples [cronômetro pomodoro](https://pt.wikipedia.org/wiki/Técnica
 <p> Depois do último e maior tempo de descanso, você será perguntado se deseja começar (ou não) outra sessão de pomodoro.
 
 <h2><b> Como usar </b></h2>
-<p> Para executar este programa, você só precisa ir até o diretório onde ele está armazenado no seu computador e executar o seguinte comando no seu terminal:
+<p> Para executar este programa, você precisa ter a versão 3.5.3 ou superior do Python, então simplesmente ir até o diretório onde ele está armazenado no seu computador e executar o seguinte comando no seu terminal:
 
 	$ python pomodoro.py
 
