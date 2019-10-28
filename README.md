@@ -16,7 +16,7 @@ This is a simple [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Techniq
 <p> After the last and longest break, you will be asked whether you want to start a new pomodoro session.
 
 <h2><b> How to use it </b></h2>
-<p> To run this program you simply have to go into the directory where it's being stored in your computer and enter this in your terminal:
+<p> To run this program you need Python 3.5.3 version or higher, then simply go into the directory where it's being stored in your computer and enter this in your terminal:
 
 	$ python pomodoro.py
 
