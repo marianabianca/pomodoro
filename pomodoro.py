@@ -2,16 +2,9 @@
 
 import time
 import os
-import platform
+import sys
 
-from sys import platform as _platform
-
-
-START_MESSAGE = "Pomodoro started..."
-NOTIFICATION_TIME_TO_WORK = """.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*
-\n            Time to work\n\n.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*"""
-NOTIFICATION_TIME_TO_REST = """.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*
-\n\t\t\t   rest\n\n.¸¸.*♡*.¸¸.*☆*¸.*♡*.¸¸.*☆*.¸¸.*♡*.¸¸.*☆*"""
+from win11toast import toast, notify, update_progress
 
 
 def minutes_to_seconds(minutes):
@@ -30,27 +23,9 @@ def _open_terminal(python_script, time_to_close=5):
     :param time_to_close: the number of seconds before closing
     the new terminal
     """
-    if _platform == "darwin":  #macOS
-        os.system("xterm -e 'bash -c \"python %s  %d; exec bash\"'" %
-                  (python_script, time_to_close))
+    os.system("start cmd /c python %s %d" % (python_script, time_to_close))
 
-    elif _platform.startswith('linux'): #linux
-        if platform.linux_distribution()[0] == "arch": # Arch Linux support
-            os.system(
-                "xterm -e 'bash -c \"python %s  %d; exec bash\"'" %
-                (python_script, time_to_close))
-        else: # Debian based distros
-            os.system(
-                "x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" %
-                (python_script, time_to_close))
 
-    elif os.name == 'nt':   #Windows
-        os.system("start cmd /c python %s %d" % (python_script, time_to_close))
-    else:
-        os.system(
-            "x-terminal-emulator -e 'bash -c \"python %s  %d; exec bash\"'" %
-            (python_script, time_to_close))
-        
 
 TIME_TO_WORK = minutes_to_seconds(25)
 TIME_TO_REST = minutes_to_seconds(5)
@@ -58,13 +33,23 @@ END_OF_POMODORO = minutes_to_seconds(30)
 
 
 def work(time_to_work):
-    _open_terminal("print_work.py", time_to_work)
+    toast('Time to work', 'Let\'s get to it', audio='ms-winsoundevent:Notification.SMS', buttons=['Dismiss'])
     time.sleep(time_to_work)
 
 
 def rest(time_to_rest):
-    _open_terminal("print_rest.py", time_to_rest)
-    time.sleep(time_to_rest)
+    notify(progress={
+    'title': 'Short break',
+    'status': 'Time to get up for a bit',
+    'value': '0',
+    'valueStringOverride': '0/15 videos'
+    }, buttons=['Dismiss'])
+
+    for i in range(1, time_to_rest):
+        time.sleep(1)
+        update_progress({'value': i/time_to_rest, 'valueStringOverride': f'{i}'/TIME_TO_REST})
+
+    update_progress({'status': 'Completed!'})
 
 
 def pomodoro_session(time_to_work=TIME_TO_WORK, time_to_rest=TIME_TO_REST, end_of_pomodoro=END_OF_POMODORO):
@@ -81,9 +66,9 @@ def pomodoro_session(time_to_work=TIME_TO_WORK, time_to_rest=TIME_TO_REST, end_o
 
 
 if __name__ == '__main__':
-    print(START_MESSAGE)
-    time.sleep(1)
-
+    pomodoro_session()
+    
+    '''
     print("Do yout want to define your own time (y/n)?")
     personalized_time = input("Press 'n' if you want to use the default time: ")
 
@@ -95,3 +80,4 @@ if __name__ == '__main__':
         pomodoro_session(time_to_work, time_to_rest, end_of_pomodoro)
     else:
         pomodoro_session()
+    '''
